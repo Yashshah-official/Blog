@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #333;
+    margin-top: 20px;
+}
+
+.post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.username {
+    color: #0073e6;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.content {
+    color: #555;
+    margin: 10px 0 20px;
+    font-size: 1em;
+}
+
+form {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+button {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+a {
+    color: #0073e6;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* New styles for the edit form */
+form.edit-form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form.edit-form p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+form.edit-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    resize: vertical;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Edit your post</h1>
+    <p>Post Id: <%= posts.id %> </p>
+    <p>Username:<%= posts.username%> </p>
+    <form action="/post/<%= posts.id %>?_method=PATCH" method="post">
+        <textarea name="content" rows="10" cols="35"><%= posts.content %></textarea>
+        <br>
+        <button>Submit</button>
+    </form>
+
+</body>
+</html>

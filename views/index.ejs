@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All post</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Blog Post</h1>
+    <% for (let posts of post) { %>
+        <div class="post">
+            <h3 class="username" > <%= posts.username  %></h3>
+            <h4 class="content" ><%= posts.content  %></h4>
+            <form action="/post/<%= posts.id %>" method="get" >
+                <button>See in details</button>
+            </form>
+            <form action="/post/<%= posts.id %>/edit" method="get" >
+                <button>Edit</button>
+            </form>
+           
+            <form action="/post/<%= posts.id %>?_method=DELETE" method="post" >
+                <button>Delete</button>
+            </form>
+        </div>
+        
+   <% }%>
+   <br><br>
+   <a href="http://localhost:8080/post/new">Create New</a>
+</body>
+</html>
